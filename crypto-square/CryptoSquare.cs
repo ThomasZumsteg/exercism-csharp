@@ -10,6 +10,8 @@ public class Crypto {
 		text = clearText;
 	}
 
+	/*NormalizePlaintext converts clear text to lower cases and 
+	 * removes characters that are not alphanumeric*/
 	public string NormalizePlaintext {
 		get { 
 			string normalizePlaintext = "";
@@ -24,6 +26,7 @@ public class Crypto {
 		}
 	}
 
+	/*Size calculates the smallest square that holds all the letters*/
 	public int Size {
 		get {
 			var sqrt = Math.Sqrt (NormalizePlaintext.Length);
@@ -31,6 +34,7 @@ public class Crypto {
 		}
 	}
 
+	/*PlaintextSegments breaks the text into rows for the cryptosquare*/  
 	public string[] PlaintextSegments() {
 		List<string> segments = new List<string> ();
 		for(var i = 0; i < NormalizePlaintext.Length; i += Size) {
@@ -40,7 +44,13 @@ public class Crypto {
 		return segments.ToArray();
 	}
 
+	/*Ciphertext scrambles the cryptosquare by reading rows*/
 	public string Ciphertext() {
+		return NormalizeCiphertext().Replace(" ", "");
+	}
+
+	/*NormalizeCiphertext adds spaces based on the square size*/
+	public string NormalizeCiphertext() {
 		string[] segments = PlaintextSegments ();
 		string ciphertext = "";
 		for (var i = 0; i < segments [0].Length; i++) {
@@ -48,21 +58,8 @@ public class Crypto {
 				if (i < segments [j].Length)
 					ciphertext += segments [j] [i];
 			}
+			ciphertext += " ";
 		}
-		return ciphertext;
-	}
-
-	public string NormalizeCiphertext() {
-		int stepSize = Size - 1;
-		string ciphertext = Ciphertext ();
-		string normalizedCiphertext = "";
-		int i = ciphertext.Length;
-		while(stepSize < i) {
-			normalizedCiphertext = ciphertext.Substring (i - stepSize, stepSize) 
-				+ " "
-				+ normalizedCiphertext;
-			i -= stepSize;
-		}
-		return normalizedCiphertext.Trim ();
+		return ciphertext.Trim();
 	}
 }

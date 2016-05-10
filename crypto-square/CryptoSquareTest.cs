@@ -106,7 +106,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("msemo aanin dnin ndla etlt shui"));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size()
     {
@@ -114,7 +114,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau"));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size_with_punctuation()
     {
@@ -122,7 +122,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("hifei acedl veeol eddgo aatcu nyhht"));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size_when_just_less_than_full_square()
     {
