@@ -7,12 +7,12 @@ using NUnit.Framework;
 public class TournamentTest
 {
     readonly string input1 = @"
-Allegoric Alaskians;Blithering Badgers;win
+Αllegoric Alaskians;Blithering Badgers;win
 Devastating Donkeys;Courageous Californians;draw
-Devastating Donkeys;Allegoric Alaskians;win
+Devastating Donkeys;Αllegoric Alaskians;win
 Courageous Californians;Blithering Badgers;loss
 Blithering Badgers;Devastating Donkeys;loss
-Allegoric Alaskians;Courageous Californians;win
+Αllegoric Alaskians;Courageous Californians;win
 ".Trim();
     
     readonly string input2 = @"
@@ -31,7 +31,7 @@ Devastating Donkeys@Courageous Californians;draw
     
     readonly string input3 = @"
 Allegoric Alaskians;Blithering Badgers;win
-Devastating Donkeys;AAllegoric Alaskians;win
+Devastating Donkeys;Allegoric Alaskians;win
 Courageous Californians;Blithering Badgers;loss
 Allegoric Alaskians;Courageous Californians;win
 ".Trim();
@@ -39,7 +39,7 @@ Allegoric Alaskians;Courageous Californians;win
     readonly string expected1 = @"
 Team                           | MP |  W |  D |  L |  P
 Devastating Donkeys            |  3 |  2 |  1 |  0 |  7
-Allegoric Alaskians            |  3 |  2 |  0 |  1 |  6
+Αllegoric Alaskians            |  3 |  2 |  0 |  1 |  6
 Blithering Badgers             |  3 |  1 |  0 |  2 |  3
 Courageous Californians        |  3 |  0 |  1 |  2 |  1
 ".Trim();
@@ -62,7 +62,7 @@ Courageous Californians        |  2 |  0 |  0 |  2 |  0
 
     private string RunTally(string input)
     {
-		var encoding = new UTF8Encoding();
+        var encoding = new UTF8Encoding();
         
         using (var inStream = new MemoryStream(encoding.GetBytes(input)))
         {
@@ -81,14 +81,14 @@ Courageous Californians        |  2 |  0 |  0 |  2 |  0
     }
     
     [Test]
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     public void Test_ignore_bad_lines()
     {
         Assert.That(RunTally(input2).Trim(), Is.EqualTo(expected2));
     }
     
     [Test]
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     public void Test_incomplete_competition()
     {
         Assert.That(RunTally(input3).Trim(), Is.EqualTo(expected3));
