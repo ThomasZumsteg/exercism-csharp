@@ -11,7 +11,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new [] { Tuple.Create(1, 9), Tuple.Create(3, 3) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Smallest_palindrome_from_single_digit_factors()
     {
@@ -20,7 +20,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new[] { Tuple.Create(1, 1) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Largest_palindrome_from_double_digit_actors()
     {
@@ -29,7 +29,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new[] { Tuple.Create(91, 99) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Smallest_palindrome_from_double_digit_factors()
     {
@@ -38,7 +38,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new[] { Tuple.Create(11, 11) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Largest_palindrome_from_triple_digit_factors()
     {
@@ -47,7 +47,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new[] { Tuple.Create(913, 993) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Smallest_palindrome_from_triple_digit_factors()
     {
@@ -56,7 +56,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new[] { Tuple.Create(101, 101) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Largest_palindrome_from_four_digit_factors()
     {
@@ -65,7 +65,7 @@ public class PalindromeTest
         Assert.That(actual.Factors, Is.EqualTo(new[] { Tuple.Create(9901, 9999) }));
     }
 
-    [Ignore("Remove to run test")]
+//    [Ignore("Remove to run test")]
     [Test]
     public void Smallest_palindrome_from_four_digit_factors()
     {
