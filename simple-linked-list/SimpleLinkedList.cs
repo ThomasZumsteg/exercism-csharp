@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/*SimpleLinedList creates a dynamics list of values*/
 public class SimpleLinkedList<T> : IEnumerable<T>
 {
 	public SimpleLinkedList<T> Next { get; private set; } = null;
 	public T Value { get; private set; }
 
+	/*SimpleLinkedList creates a new one element list*/
 	public SimpleLinkedList(T value)
 	{
 		Value = value;
 	}
 
+	/*SimpleLinkedList creates a new list with multiple elements*/
 	public SimpleLinkedList(IEnumerable<T> values)
 	{
 		Value = values.First();
@@ -20,36 +23,38 @@ public class SimpleLinkedList<T> : IEnumerable<T>
 		}
 	}
 
+	/*Add appends an element to the list*/
 	public SimpleLinkedList<T> Add(T value)
 	{
 		Next = Next?.Add(value) ?? new SimpleLinkedList<T>(value);
 		return this;
 	}
 
+	/*Reverse creates a new list with the elements in reverse order*/
 	public SimpleLinkedList<T> Reverse()
 	{
-		SimpleLinkedList<T> prev = null;
-		SimpleLinkedList<T> curr = this;
-		for (SimpleLinkedList<T> next = curr.Next; next != null; next = next.Next)
+		SimpleLinkedList<T> root = null;
+		foreach (var value in this)
 		{
-			curr.Next = prev;
-			curr = next;
+			SimpleLinkedList<T> next = new SimpleLinkedList<T>(value);
+			next.Next = root;
+			root = next;
 		}
-		return curr;
+		return root;
 	}
 
-	public IEnumerable<T> GetEnumerator()
+	/*GetEnumerator makes the list enumerable*/
+	public IEnumerator<T> GetEnumerator()
 	{
-		List<T> items = new List<T>();
-		for (SimpleLinkedList<T> node = this; node.Next != null; node = node.Next)
+		for (var node = this; node != null; node = node.Next)
 		{
-			items.Add(node.Value);
+			yield return node.Value;
 		}
-		return items.GetEnumerator();
 	}
 
 	System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 	{
 		return GetEnumerator();
 	}
+
 }

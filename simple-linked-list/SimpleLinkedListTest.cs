@@ -62,26 +62,26 @@ public class SimpleLinkedListTest
         Assert.That(list.Next.Next.Next.Next.Value, Is.EqualTo(2));
     }
 
-    //[TestCase(1)]
-    //[TestCase(2)]
-    //[TestCase(10)]
-    //[TestCase(100)]
-    //public void Reverse(int length)
-    //{
-    //    var values = Enumerable.Range(1, length).ToArray();
-    //    var list = new SimpleLinkedList<int>(values);
-    //    var reversed = list.Reverse();
-    //    Assert.That(reversed, Is.EqualTo(values.Reverse()));
-    //}
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(10)]
+    [TestCase(100)]
+    public void Reverse(int length)
+    {
+        var values = Enumerable.Range(1, length).ToArray();
+        var list = new SimpleLinkedList<int>(values);
+        var reversed = list.Reverse();
+        Assert.That(reversed, Is.EqualTo(values.Reverse()));
+    }
 
-    //[TestCase(1)]
-    //[TestCase(2)]
-    //[TestCase(10)]
-    //[TestCase(100)]
-    //public void Roundtrip(int length)
-    //{
-    //    var values = Enumerable.Range(1, length);
-    //    var listValues = new SimpleLinkedList<int>(values);
-    //    Assert.That(listValues, Is.EqualTo(values));
-    //}
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(10)]
+    [TestCase(100)]
+    public void Roundtrip(int length)
+    {
+        var values = Enumerable.Range(1, length);
+        var listValues = new SimpleLinkedList<int>(values);
+        Assert.That(listValues, Is.EqualTo(values));
+    }
 }
